@@ -20,6 +20,9 @@ var isLastInStock = function (cars) {
   return _.prop('in_stock', reversed_cars);
 };
 
+var isLastInStock = _.compose(_.prop('in_stock'), _.last);
+
+
 // Exercise 2:
 // ============
 // use _.compose(), _.prop() and _.head() to retrieve the name of the first car
