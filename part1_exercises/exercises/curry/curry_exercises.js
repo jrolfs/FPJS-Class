@@ -37,7 +37,7 @@ var filterQs = filter(matchQs);
 // Use the helper function _keepHighest to refactor max to not reference any arguments
 
 // LEAVE BE:
-var _keepHighest = function(x,y){ return x >= y ? x : y; };
+var _keepHighest = function (x,y) { return x >= y ? x : y; };
 
 // REFACTOR THIS ONE:
 // var max = function (xs) {
@@ -49,7 +49,6 @@ var _keepHighest = function(x,y){ return x >= y ? x : y; };
 var max = reduce(_keepHighest, 0);
 
 
-  
 // Bonus 1:
 // ============
 // wrap array's slice to be functional and curried.
