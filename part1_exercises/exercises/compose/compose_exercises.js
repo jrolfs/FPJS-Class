@@ -60,12 +60,19 @@ var sanitizeNames = _.compose(
 // ============
 // Refactor availablePrices with compose.
 
-var availablePrices = function (cars) {
-  var available_cars = _.filter(_.prop('in_stock'), cars);
-  return available_cars.map(function (x) {
-    return accounting.formatMoney(x.dollar_value);
-  }).join(', ');
-};
+// var availablePrices = function (cars) {
+//   var available_cars = _.filter(_.prop('in_stock'), cars);
+//   return available_cars.map(function (x) {
+//     return accounting.formatMoney(x.dollar_value);
+//   }).join(', ');
+// };
+
+var availablePrices = _.compose(
+  _.join(', '),
+  _.map(accounting.formatMoney),
+  _.map(_.prop('dollar_value')),
+  _.filter(_.prop('in_stock'))
+);
 
 
 // Bonus 2:
